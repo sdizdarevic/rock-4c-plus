@@ -64,9 +64,7 @@ jobs:
           flavor: ${{ matrix.flavors }}
           release-id: ${{ needs.prepare_release.outputs.release_id }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Resolve GPG key
-        run: sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E572249A33EB9743
+ 
       - name: Upload debos-radxa image
         uses: radxa/debos-build-action@main
         if: matrix.build_systems == 'debos'
